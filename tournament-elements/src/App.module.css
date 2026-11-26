@@ -1,4 +1,4 @@
-/* Global website colours and typography /
+/* Global website colours and typography */
 :global(:root) {
     --color-primary: #0B1626;
     --color-secondary: #13283F;
@@ -16,7 +16,7 @@
     --content-max-width: 1440px;
 }
 
-/ Reset default browser spacing /
+/* Reset default browser spacing */
 :global() {
     box-sizing: border-box;
     margin: 0;
@@ -41,7 +41,7 @@
     min-height: 100vh;
 }
 
-/* Global heading styles /
+/* Global heading styles */
 :global(h1),
 :global(h2),
 :global(h3),
@@ -50,32 +50,72 @@
     font-weight: 500;
 }
 
-/ Remove default link styling /
+/* Remove default link styling */
 :global(a) {
     color: inherit;
     text-decoration: none;
 }
 
-/ Keep button typography consistent /
+/* Keep button typography consistent */
 :global(button) {
     font-family: inherit;
     cursor: pointer;
 }
 
-/ Prevent images and videos exceeding their containers /
+/* Prevent images and videos exceeding their containers */
 :global(img),
 :global(video) {
     display: block;
     max-width: 100%;
 }
 
-/ Application container /
+/* Application container */
 .app {
     width: 100%;
     min-height: 100vh;
 }
 
-/ Main page content */
+/* Main page content */
 .main {
     width: 100%;
+}
+
+/* Temporary styling for testing navigation.
+   This will be removed as we develop each section. */
+ 
+.placeholderSection {
+    width: 100%;
+    min-height: 100vh;
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 
+    padding: 120px 20px 60px;
+ 
+    text-align: center;
+ 
+    background-color: var(--color-primary);
+}
+ 
+.placeholderSection:nth-child(even) {
+    background-color: var(--color-secondary);
+}
+ 
+.placeholderSection h1 {
+    font-size: clamp(32px, 5vw, 64px);
+    color: var(--color-text);
+}
+ 
+.placeholderSection h2 {
+    font-size: clamp(26px, 4vw, 48px);
+    color: var(--color-text);
+}
+ 
+.placeholderSection p {
+    margin-top: 15px;
+    color: var(--color-text-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }

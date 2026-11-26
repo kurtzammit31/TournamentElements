@@ -1,0 +1,338 @@
+/* ==============================
+   Header
+   ============================== */
+ 
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+ 
+    /* Gradually fades into the hero background */
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 15, 26, 0.95),
+        rgba(8, 15, 26, 0.55),
+        transparent
+    );
+}
+ 
+.container {
+    position: relative;
+    width: 100%;
+    max-width: var(--content-max-width);
+    min-height: 100px;
+ 
+    margin: 0 auto;
+    padding: 16px 40px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+ 
+ 
+/* ==============================
+   Game Logo
+   ============================== */
+ 
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    line-height: 1.2;
+ 
+    flex-shrink: 0;
+}
+ 
+.logoSmall {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--color-accent);
+}
+ 
+.logoLarge {
+    font-size: 24px;
+    letter-spacing: 4px;
+    color: var(--color-text);
+}
+ 
+.logoDecoration {
+    color: var(--color-accent);
+    font-size: 18px;
+    line-height: 1;
+}
+ 
+ 
+/* ==============================
+   Desktop Navigation
+   ============================== */
+ 
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+ 
+.navigation a {
+    position: relative;
+    padding: 8px 0;
+ 
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+ 
+    color: var(--color-text);
+ 
+    transition: color 0.25s ease;
+}
+ 
+.navigation a:hover {
+    color: var(--color-accent-light);
+}
+ 
+/* Animated gold underline */
+.navigation a::after {
+    content: '';
+ 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+ 
+    width: 100%;
+    height: 1px;
+ 
+    background-color: var(--color-accent);
+ 
+    transform: scaleX(0);
+    transform-origin: center;
+ 
+    transition: transform 0.25s ease;
+}
+ 
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+ 
+ 
+/* ==============================
+   Join Button
+   ============================== */
+ 
+.joinButton,
+.mobileJoinButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+ 
+    padding: 11px 22px;
+ 
+    border: 1px solid var(--color-accent);
+    background-color: rgba(8, 15, 26, 0.5);
+ 
+    color: var(--color-accent-light);
+ 
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+ 
+    box-shadow:
+        0 0 12px rgba(212, 180, 119, 0.15),
+        inset 0 0 8px rgba(212, 180, 119, 0.08);
+ 
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.25s ease;
+}
+ 
+.joinButton:hover,
+.mobileJoinButton:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+ 
+    box-shadow: 0 0 20px rgba(212, 180, 119, 0.4);
+}
+ 
+.joinButton span {
+    font-size: 20px;
+    line-height: 1;
+}
+ 
+ 
+/* ==============================
+   Keyboard Accessibility
+   ============================== */
+ 
+.logo:focus-visible,
+.navigation a:focus-visible,
+.joinButton:focus-visible,
+.menuButton:focus-visible {
+    outline: 2px solid var(--color-accent-light);
+    outline-offset: 5px;
+}
+ 
+ 
+/* ==============================
+   Mobile Menu Button
+   ============================== */
+ 
+.menuButton {
+    display: none;
+ 
+    width: 44px;
+    height: 44px;
+ 
+    padding: 8px;
+ 
+    border: none;
+    background: transparent;
+ 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+ 
+.menuButton span {
+    display: block;
+ 
+    width: 26px;
+    height: 2px;
+ 
+    background-color: var(--color-accent-light);
+ 
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+ 
+/* Changes the hamburger icon into an X */
+.menuButtonOpen span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+ 
+.menuButtonOpen span:nth-child(2) {
+    opacity: 0;
+}
+ 
+.menuButtonOpen span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+ 
+.navigation .mobileJoinButton {
+    display: none;
+}
+ 
+ 
+/* ==============================
+   Tablet
+   ============================== */
+ 
+@media (max-width: 1100px) {
+    .container {
+        padding: 16px 24px;
+        gap: 20px;
+    }
+ 
+    .navigation {
+        gap: 20px;
+    }
+ 
+    .logoLarge {
+        font-size: 21px;
+    }
+ 
+    .joinButton {
+        padding: 10px 14px;
+        font-size: 10px;
+    }
+}
+ 
+ 
+/* ==============================
+   Mobile and Smaller Tablets
+   ============================== */
+ 
+@media (max-width: 900px) {
+    .container {
+        min-height: 80px;
+        padding: 12px 20px;
+    }
+ 
+    .joinButton {
+        display: none;
+    }
+ 
+    .menuButton {
+        display: flex;
+    }
+ 
+    .navigation {
+        display: none;
+ 
+        position: absolute;
+        top: 100%;
+        left: 0;
+ 
+        width: 100%;
+        padding: 30px 20px;
+ 
+        background-color: rgba(8, 15, 26, 0.98);
+        border-bottom: 1px solid var(--color-accent);
+ 
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+ 
+    .navigationOpen {
+        display: flex;
+    }
+ 
+    .navigation a {
+        font-size: 14px;
+    }
+ 
+    .navigation .mobileJoinButton {
+        display: inline-flex;
+        padding: 12px 24px;
+        margin-top: 8px;
+    }
+ 
+    .mobileJoinButton::after {
+        display: none;
+    }
+}
+ 
+ 
+/* ==============================
+   Small Mobile Devices
+   ============================== */
+ 
+@media (max-width: 480px) {
+    .logoSmall {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+ 
+    .logoLarge {
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+ 
+    .logoDecoration {
+        font-size: 14px;
+    }
+}
