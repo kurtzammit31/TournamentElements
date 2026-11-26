@@ -1,0 +1,426 @@
+/* ==============================
+   Hero Section
+   ============================== */
+ 
+.hero {
+    position: relative;
+ 
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    padding: 140px 24px 120px;
+ 
+    overflow: hidden;
+    isolation: isolate;
+ 
+    /* Temporary background until artwork is added */
+    background: radial-gradient(
+        ellipse at 50% 35%,
+        #344E70 0%,
+        var(--color-secondary) 40%,
+        var(--color-background) 100%
+    );
+}
+ 
+ 
+/* ==============================
+   Background Image and Video
+   ============================== */
+ 
+.backgroundImage,
+.backgroundVideo {
+    position: absolute;
+ 
+    top: 0;
+    left: 0;
+ 
+    width: 100%;
+    height: 100%;
+ 
+    object-fit: cover;
+    object-position: center;
+ 
+    pointer-events: none;
+}
+ 
+.backgroundImage {
+    z-index: -3;
+}
+ 
+.backgroundVideo {
+    z-index: -2;
+}
+ 
+ 
+/* ==============================
+   Cinematic Overlay
+   ============================== */
+ 
+.overlay {
+    position: absolute;
+    inset: 0;
+ 
+    z-index: -1;
+ 
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(8, 15, 26, 0.40) 0%,
+            rgba(8, 15, 26, 0.05) 70%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(8, 15, 26, 0.25) 0%,
+            transparent 25%,
+            rgba(8, 15, 26, 0.15) 65%,
+            var(--color-primary) 100%
+        );
+}
+ 
+ 
+/* ==============================
+   Hero Content
+   ============================== */
+ 
+.content {
+    position: relative;
+ 
+    width: 100%;
+    max-width: 1100px;
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+    text-align: center;
+ 
+    animation: fadeIn 1.2s ease-out;
+}
+ 
+.titleDecoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    gap: 14px;
+    margin-bottom: 18px;
+}
+ 
+.titleDecoration span:not(.diamond) {
+    width: 70px;
+    height: 1px;
+ 
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-accent)
+    );
+}
+ 
+.titleDecoration span:last-child {
+    transform: rotate(180deg);
+}
+ 
+.diamond {
+    color: var(--color-accent-light);
+    font-size: 28px;
+ 
+    text-shadow: 0 0 15px var(--color-accent);
+}
+ 
+ 
+/* ==============================
+   Game Title
+   ============================== */
+ 
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+    font-family: var(--font-heading);
+    font-weight: 500;
+    text-transform: uppercase;
+ 
+    color: var(--color-text);
+ 
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(8, 15, 26, 0.8);
+}
+ 
+.titleSmall {
+    font-size: clamp(18px, 2.8vw, 42px);
+    letter-spacing: 0.3em;
+    line-height: 1.4;
+}
+ 
+.titleLarge {
+    font-size: clamp(38px, 8vw, 120px);
+    letter-spacing: 0.12em;
+    line-height: 1.1;
+}
+ 
+.tagline {
+    margin-top: 24px;
+ 
+    color: var(--color-text);
+ 
+    font-size: clamp(10px, 1.1vw, 16px);
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+ 
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+ 
+ 
+/* ==============================
+   Explore Button
+   ============================== */
+ 
+.exploreButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+ 
+    gap: 20px;
+ 
+    margin-top: 38px;
+    padding: 16px 32px;
+ 
+    border: 1px solid var(--color-accent);
+ 
+    background-color: rgba(8, 15, 26, 0.65);
+    color: var(--color-accent-light);
+ 
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+ 
+    box-shadow:
+        0 0 18px rgba(212, 180, 119, 0.25),
+        inset 0 0 10px rgba(212, 180, 119, 0.10);
+ 
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+ 
+.exploreButton:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+ 
+    box-shadow: 0 0 30px rgba(212, 180, 119, 0.45);
+ 
+    transform: translateY(-3px);
+}
+ 
+.exploreButton span {
+    font-size: 24px;
+    line-height: 1;
+}
+ 
+ 
+/* ==============================
+   Scroll Indicator
+   ============================== */
+ 
+.scrollIndicator {
+    position: absolute;
+ 
+    bottom: 32px;
+    left: 50%;
+ 
+    transform: translateX(-50%);
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+    gap: 12px;
+ 
+    color: var(--color-accent-light);
+}
+ 
+.scrollIndicator > span:first-child {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+ 
+.scrollArrow {
+    width: 15px;
+    height: 15px;
+ 
+    border-right: 1px solid var(--color-accent-light);
+    border-bottom: 1px solid var(--color-accent-light);
+ 
+    transform: rotate(45deg);
+ 
+    animation: scrollBounce 2s infinite;
+}
+ 
+ 
+/* ==============================
+   Video Controls
+   ============================== */
+ 
+.videoControl {
+    position: absolute;
+ 
+    right: 40px;
+    bottom: 32px;
+ 
+    width: 46px;
+    height: 46px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+ 
+    background-color: rgba(8, 15, 26, 0.6);
+    color: var(--color-accent-light);
+ 
+    font-size: 18px;
+ 
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+ 
+.videoControl:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+}
+ 
+.exploreButton:focus-visible,
+.scrollIndicator:focus-visible,
+.videoControl:focus-visible {
+    outline: 2px solid var(--color-accent-light);
+    outline-offset: 5px;
+}
+ 
+ 
+/* ==============================
+   Animations
+   ============================== */
+ 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+ 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+ 
+    50% {
+        transform: translateY(7px) rotate(45deg);
+    }
+}
+ 
+ 
+/* ==============================
+   Tablets
+   ============================== */
+ 
+@media (max-width: 900px) {
+    .hero {
+        padding: 120px 24px 100px;
+    }
+ 
+    .titleLarge {
+        font-size: clamp(38px, 10vw, 90px);
+    }
+ 
+    .videoControl {
+        right: 24px;
+    }
+}
+ 
+ 
+/* ==============================
+   Mobile Devices
+   ============================== */
+ 
+@media (max-width: 480px) {
+    .hero {
+        padding: 110px 16px 100px;
+    }
+ 
+    .titleSmall {
+        font-size: 17px;
+        letter-spacing: 0.2em;
+    }
+ 
+    .titleLarge {
+        font-size: clamp(32px, 10vw, 48px);
+        letter-spacing: 0.08em;
+    }
+ 
+    .tagline {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-top: 18px;
+    }
+ 
+    .exploreButton {
+        padding: 14px 20px;
+        margin-top: 28px;
+ 
+        font-size: 10px;
+        letter-spacing: 1px;
+        gap: 12px;
+    }
+ 
+    .titleDecoration span:not(.diamond) {
+        width: 40px;
+    }
+ 
+    .videoControl {
+        right: 16px;
+        bottom: 24px;
+ 
+        width: 40px;
+        height: 40px;
+    }
+ 
+    .scrollIndicator {
+        bottom: 24px;
+    }
+}
+ 
+ 
+/* Reduce decorative animations for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .content,
+    .scrollArrow {
+        animation: none;
+    }
+ 
+    .exploreButton,
+    .videoControl {
+        transition: none;
+    }
+}
