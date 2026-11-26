@@ -2,26 +2,22 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import GameIntro from './components/GameIntro/GameIntro';
+import ElementSelector from './components/ElementSelector/ElementSelector';
 import styles from './App.module.css';
  
 const App: React.FC = () => {
     return (
         <div className={styles.app}>
             <Header />
- 
+
             <main className={styles.main}>
                 <Hero />
 
                 <GameIntro />
 
-                {/* Temporary sections for future development */}
+                <ElementSelector />
 
-                <section
-                    id="elements"
-                    className={styles.placeholderSection}
-                >
-                    <h2>Choose Your Element</h2>
-                </section>
+                {/* Temporary sections for future development */}
 
                 <section
                     id="game-modes"

@@ -1,0 +1,461 @@
+/* ==============================
+   Element Character Card
+   ============================== */
+ 
+.elementCard {
+    position: relative;
+ 
+    width: 100%;
+    min-height: 540px;
+ 
+    display: grid;
+    grid-template-columns: 45% 55%;
+ 
+    background-color: var(--color-primary);
+ 
+    border: 1px solid rgba(168, 181, 197, 0.15);
+    border-top: 2px solid var(--element-color);
+ 
+    overflow: hidden;
+    isolation: isolate;
+ 
+    animation: cardFadeIn 0.4s ease-out;
+}
+ 
+ 
+/* ==============================
+   Element Information
+   ============================== */
+ 
+.content {
+    position: relative;
+    z-index: 2;
+ 
+    min-width: 0;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ 
+    padding: 45px 0 45px 50px;
+}
+ 
+.subtitle {
+    color: var(--element-color);
+ 
+    font-size: 10px;
+    font-weight: 600;
+ 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+ 
+.title {
+    margin-top: 8px;
+ 
+    color: var(--element-color);
+ 
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 76px);
+    font-weight: 500;
+ 
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+ 
+    text-shadow: 0 0 30px color-mix(
+        in srgb,
+        var(--element-color) 25%,
+        transparent
+    );
+}
+ 
+.combatStyle {
+    margin-top: 12px;
+ 
+    color: var(--color-text);
+ 
+    font-size: 14px;
+    font-weight: 600;
+}
+ 
+.description {
+    max-width: 450px;
+ 
+    margin-top: 18px;
+ 
+    color: var(--color-text-muted);
+ 
+    font-size: 14px;
+    line-height: 1.9;
+}
+ 
+ 
+/* ==============================
+   Decorative Divider
+   ============================== */
+ 
+.divider {
+    width: 100%;
+    max-width: 400px;
+    height: 1px;
+ 
+    margin: 26px 0;
+ 
+    background: linear-gradient(
+        to right,
+        var(--element-color),
+        transparent
+    );
+ 
+    opacity: 0.5;
+}
+ 
+ 
+/* ==============================
+   Element Abilities
+   ============================== */
+ 
+.abilities {
+    width: 100%;
+}
+ 
+.abilitiesTitle {
+    margin-bottom: 18px;
+ 
+    color: var(--color-accent);
+ 
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 500;
+ 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+ 
+.abilityList {
+    display: flex;
+    flex-direction: column;
+ 
+    gap: 16px;
+ 
+    list-style: none;
+}
+ 
+.ability {
+    display: flex;
+    align-items: flex-start;
+ 
+    gap: 14px;
+}
+ 
+.abilityIcon {
+    width: 44px;
+    height: 44px;
+ 
+    flex-shrink: 0;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    border: 1px solid color-mix(
+        in srgb,
+        var(--element-color) 50%,
+        transparent
+    );
+ 
+    background-color: color-mix(
+        in srgb,
+        var(--element-color) 8%,
+        transparent
+    );
+ 
+    font-size: 20px;
+ 
+    box-shadow: inset 0 0 12px color-mix(
+        in srgb,
+        var(--element-color) 8%,
+        transparent
+    );
+}
+
+.abilityIconImage {
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 0 6px var(--element-color)
+    );
+}
+ 
+.abilityContent {
+    flex: 1;
+    min-width: 0;
+}
+ 
+.abilityName {
+    margin-bottom: 4px;
+ 
+    color: var(--color-text);
+ 
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+}
+ 
+.abilityDescription {
+    max-width: 350px;
+ 
+    color: var(--color-text-muted);
+ 
+    font-size: 12px;
+    line-height: 1.7;
+}
+ 
+ 
+/* ==============================
+   Character Artwork
+   ============================== */
+ 
+.characterContainer {
+    position: relative;
+ 
+    min-width: 0;
+    min-height: 100%;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    background: radial-gradient(
+        ellipse at 60% 50%,
+        color-mix(
+            in srgb,
+            var(--element-color) 20%,
+            transparent
+        ),
+        transparent 75%
+    );
+ 
+    overflow: hidden;
+}
+ 
+.characterImage {
+    position: absolute;
+    inset: 0;
+ 
+    width: 100%;
+    height: 100%;
+ 
+    object-fit: cover;
+    object-position: center;
+}
+ 
+/* Fallback icon before artwork is added */
+.characterPlaceholder {
+    width: clamp(100px, 15vw, 200px);
+    height: clamp(100px, 15vw, 200px);
+
+    object-fit: contain;
+ 
+    filter: drop-shadow(
+        0 0 40px var(--element-color)
+    );
+}
+ 
+ 
+/* ==============================
+   Natural Image Transition
+   ============================== */
+ 
+.characterOverlay {
+    position: absolute;
+    inset: 0;
+ 
+    pointer-events: none;
+ 
+    background:
+        linear-gradient(
+            to right,
+            var(--color-primary) 0%,
+            rgba(11, 22, 38, 0.65) 12%,
+            transparent 45%
+        ),
+        linear-gradient(
+            to top,
+            rgba(11, 22, 38, 0.75) 0%,
+            transparent 30%
+        );
+}
+ 
+ 
+/* ==============================
+   Decorative Corners
+   ============================== */
+ 
+.cornerTop,
+.cornerBottom {
+    position: absolute;
+    z-index: 3;
+ 
+    width: 24px;
+    height: 24px;
+ 
+    pointer-events: none;
+}
+ 
+.cornerTop {
+    top: 12px;
+    left: 12px;
+ 
+    border-top: 1px solid var(--element-color);
+    border-left: 1px solid var(--element-color);
+}
+ 
+.cornerBottom {
+    bottom: 12px;
+    right: 12px;
+ 
+    border-bottom: 1px solid var(--element-color);
+    border-right: 1px solid var(--element-color);
+}
+ 
+ 
+/* ==============================
+   Card Animation
+   ============================== */
+ 
+@keyframes cardFadeIn {
+    from {
+        opacity: 0.4;
+    }
+ 
+    to {
+        opacity: 1;
+    }
+}
+ 
+ 
+/* ==============================
+   Smaller Desktop Screens
+   ============================== */
+ 
+@media (max-width: 1100px) {
+    .elementCard {
+        grid-template-columns: 50% 50%;
+    }
+ 
+    .content {
+        padding: 35px 0 35px 35px;
+    }
+}
+ 
+ 
+/* ==============================
+   Tablets
+   ============================== */
+ 
+@media (max-width: 900px) {
+    .elementCard {
+        grid-template-columns: 55% 45%;
+    }
+ 
+    .content {
+        padding: 30px 0 30px 30px;
+    }
+ 
+    .title {
+        font-size: clamp(32px, 5vw, 48px);
+    }
+ 
+    .description {
+        font-size: 13px;
+    }
+ 
+    .abilityDescription {
+        font-size: 11px;
+    }
+}
+ 
+ 
+/* ==============================
+   Mobile Devices
+   ============================== */
+ 
+@media (max-width: 600px) {
+    .elementCard {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+ 
+    /* Display character artwork above the information */
+    .characterContainer {
+        grid-row: 1;
+ 
+        min-height: 320px;
+    }
+ 
+    .characterImage {
+        object-position: center 30%;
+    }
+ 
+    .characterOverlay {
+        background: linear-gradient(
+            to bottom,
+            transparent 55%,
+            var(--color-primary) 100%
+        );
+    }
+ 
+    .content {
+        padding: 15px 24px 35px;
+    }
+ 
+    .title {
+        font-size: clamp(32px, 9vw, 46px);
+    }
+ 
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+ 
+    .combatStyle {
+        font-size: 13px;
+    }
+ 
+    .description {
+        margin-top: 14px;
+        font-size: 13px;
+    }
+ 
+    .divider {
+        margin: 22px 0;
+    }
+ 
+    .abilityIcon {
+        width: 40px;
+        height: 40px;
+    }
+ 
+    .abilityDescription {
+        font-size: 12px;
+    }
+ 
+    .cornerTop,
+    .cornerBottom {
+        width: 18px;
+        height: 18px;
+    }
+}
+ 
+ 
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .elementCard {
+        animation: none;
+    }
+}
