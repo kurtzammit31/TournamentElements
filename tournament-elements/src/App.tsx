@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
+import GameIntro from './components/GameIntro/GameIntro';
 import styles from './App.module.css';
  
 const App: React.FC = () => {
@@ -11,14 +12,9 @@ const App: React.FC = () => {
             <main className={styles.main}>
                 <Hero />
 
-                {/* Temporary sections for future development */}
+                <GameIntro />
 
-                <section
-                    id="game"
-                    className={styles.placeholderSection}
-                >
-                    <h2>Enter the Tournament</h2>
-                </section>
+                {/* Temporary sections for future development */}
 
                 <section
                     id="elements"
@@ -40,7 +36,6 @@ const App: React.FC = () => {
                 >
                     <h2>Your Element Awaits</h2>
                 </section>
-
             </main>
         </div>
     );
