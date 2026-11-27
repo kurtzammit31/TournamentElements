@@ -6,6 +6,7 @@ import GameIntro from './components/GameIntro/GameIntro';
 import ElementSelector from './components/ElementSelector/ElementSelector';
 import GameModes from './components/GameModes/GameModes';
 import CallToAction from './components/CallToAction/CallToAction';
+import Footer from './components/Footer/Footer';
  
 import styles from './App.module.css';
  
@@ -29,7 +30,12 @@ const App: React.FC = () => {
 
                 {/* Final Call to Action */}
                 <CallToAction />
+
+                
             </main>
+
+              {/* Footer */}
+                <Footer />
         </div>
     );
 };
