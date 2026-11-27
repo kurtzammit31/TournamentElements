@@ -5,6 +5,7 @@ import Hero from './components/Hero/Hero';
 import GameIntro from './components/GameIntro/GameIntro';
 import ElementSelector from './components/ElementSelector/ElementSelector';
 import GameModes from './components/GameModes/GameModes';
+import CallToAction from './components/CallToAction/CallToAction';
  
 import styles from './App.module.css';
  
@@ -26,13 +27,8 @@ const App: React.FC = () => {
                 {/* PvP and PvE Game Modes */}
                 <GameModes />
 
-                {/* Temporary Call to Action Section */}
-                <section
-                    id="join"
-                    className={styles.placeholderSection}
-                >
-                    <h2>Your Element Awaits</h2>
-                </section>
+                {/* Final Call to Action */}
+                <CallToAction />
             </main>
         </div>
     );
