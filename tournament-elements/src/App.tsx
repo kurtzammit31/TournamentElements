@@ -1,8 +1,11 @@
 import React from 'react';
+ 
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import GameIntro from './components/GameIntro/GameIntro';
 import ElementSelector from './components/ElementSelector/ElementSelector';
+import GameModes from './components/GameModes/GameModes';
+ 
 import styles from './App.module.css';
  
 const App: React.FC = () => {
@@ -11,21 +14,19 @@ const App: React.FC = () => {
             <Header />
 
             <main className={styles.main}>
+                {/* Hero Section */}
                 <Hero />
 
+                {/* Game Introduction */}
                 <GameIntro />
 
+                {/* Element Selection and Character Showcase */}
                 <ElementSelector />
 
-                {/* Temporary sections for future development */}
+                {/* PvP and PvE Game Modes */}
+                <GameModes />
 
-                <section
-                    id="game-modes"
-                    className={styles.placeholderSection}
-                >
-                    <h2>Choose Your Battle</h2>
-                </section>
-
+                {/* Temporary Call to Action Section */}
                 <section
                     id="join"
                     className={styles.placeholderSection}

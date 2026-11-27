@@ -1,0 +1,548 @@
+/* ==============================
+   Game Modes Section
+   ============================== */
+ 
+.gameModesSection {
+    position: relative;
+ 
+    width: 100%;
+    padding: 80px 0 0;
+ 
+    background-color: var(--color-primary);
+ 
+    overflow: hidden;
+}
+ 
+ 
+/* ==============================
+   Section Heading
+   ============================== */
+ 
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+    padding: 0 24px;
+    margin-bottom: 50px;
+ 
+    text-align: center;
+}
+ 
+.decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    gap: 14px;
+    margin-bottom: 20px;
+}
+ 
+.decoration span:not(.diamond) {
+    width: 60px;
+    height: 1px;
+ 
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-accent)
+    );
+}
+ 
+.decoration span:last-child {
+    transform: rotate(180deg);
+}
+ 
+.diamond {
+    color: var(--color-accent-light);
+    font-size: 24px;
+ 
+    text-shadow: 0 0 12px rgba(212, 180, 119, 0.5);
+}
+ 
+.subtitle {
+    margin-bottom: 12px;
+ 
+    color: var(--color-accent);
+ 
+    font-size: 11px;
+    font-weight: 500;
+ 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+ 
+.title {
+    color: var(--color-text);
+ 
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 500;
+ 
+    letter-spacing: 2px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+ 
+.description {
+    max-width: 600px;
+ 
+    margin-top: 18px;
+ 
+    color: var(--color-text-muted);
+ 
+    font-size: 14px;
+    line-height: 1.8;
+}
+ 
+ 
+/* ==============================
+   Game Modes Grid
+   ============================== */
+ 
+.modesGrid {
+    display: grid;
+ 
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+ 
+    width: 100%;
+ 
+    border-top: 1px solid rgba(212, 180, 119, 0.25);
+    border-bottom: 1px solid rgba(212, 180, 119, 0.25);
+}
+ 
+ 
+/* ==============================
+   Game Mode Cards
+   ============================== */
+ 
+.modeCard {
+    position: relative;
+ 
+    min-width: 0;
+    min-height: 620px;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+ 
+    padding: 50px;
+ 
+    overflow: hidden;
+    isolation: isolate;
+}
+ 
+/* PvP colour theme */
+ 
+.pvpCard {
+    --mode-accent: #E6A06B;
+ 
+    background: radial-gradient(
+        ellipse at 50% 20%,
+        #59312A,
+        #0B1626 80%
+    );
+ 
+    border-right: 1px solid rgba(212, 180, 119, 0.25);
+}
+ 
+/* PvE colour theme */
+ 
+.pveCard {
+    --mode-accent: #8FC8E8;
+ 
+    background: radial-gradient(
+        ellipse at 50% 20%,
+        #244D65,
+        #0B1626 80%
+    );
+}
+ 
+ 
+/* ==============================
+   Background Artwork
+   ============================== */
+ 
+.modeImage {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+ 
+    width: 100%;
+    height: 100%;
+ 
+    object-fit: cover;
+    object-position: center;
+ 
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+ 
+ 
+/* ==============================
+   Image Overlay
+   ============================== */
+ 
+.overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+ 
+    pointer-events: none;
+ 
+    background: linear-gradient(
+        to top,
+        rgba(8, 15, 26, 1) 0%,
+        rgba(8, 15, 26, 0.95) 15%,
+        rgba(8, 15, 26, 0.75) 35%,
+        rgba(8, 15, 26, 0.15) 70%,
+        rgba(8, 15, 26, 0.1) 100%
+    );
+ 
+    transition: opacity 0.4s ease;
+}
+ 
+ 
+/* ==============================
+   Mode Number
+   ============================== */
+ 
+.modeNumber {
+    position: absolute;
+ 
+    top: 30px;
+    left: 35px;
+ 
+    color: rgba(255, 255, 255, 0.65);
+ 
+    font-family: var(--font-heading);
+    font-size: 32px;
+ 
+    letter-spacing: 3px;
+}
+ 
+ 
+/* ==============================
+   Game Mode Information
+   ============================== */
+ 
+.modeContent {
+    position: relative;
+ 
+    width: 100%;
+    max-width: 650px;
+ 
+    margin: 0 auto;
+}
+ 
+.modeLabel {
+    display: inline-block;
+ 
+    margin-bottom: 14px;
+ 
+    color: var(--mode-accent);
+ 
+    font-size: 11px;
+    font-weight: 600;
+ 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+ 
+.modeTitle {
+    color: var(--color-text);
+ 
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 500;
+ 
+    line-height: 1.3;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+ 
+    transition: color 0.3s ease;
+}
+ 
+.modeDivider {
+    width: 80px;
+    height: 1px;
+ 
+    margin: 22px 0;
+ 
+    background-color: var(--mode-accent);
+ 
+    transition: width 0.4s ease;
+}
+ 
+.modeDescription {
+    max-width: 520px;
+ 
+    color: var(--color-text-muted);
+ 
+    font-size: 14px;
+    line-height: 1.9;
+}
+ 
+ 
+/* ==============================
+   Game Mode Features
+   ============================== */
+ 
+.features {
+    display: flex;
+    flex-wrap: wrap;
+ 
+    gap: 10px;
+    margin-top: 26px;
+}
+ 
+.features span {
+    display: inline-block;
+ 
+    padding: 9px 12px;
+ 
+    border: 1px solid color-mix(
+        in srgb,
+        var(--mode-accent) 35%,
+        transparent
+    );
+ 
+    background-color: rgba(8, 15, 26, 0.5);
+ 
+    color: var(--color-text-muted);
+ 
+    font-size: 10px;
+    font-weight: 500;
+ 
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+ 
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+ 
+ 
+/* ==============================
+   Decorative Bottom Accent
+   ============================== */
+ 
+.modeCard::after {
+    content: '';
+ 
+    position: absolute;
+ 
+    bottom: 0;
+    left: 0;
+ 
+    width: 100%;
+    height: 2px;
+ 
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--mode-accent),
+        transparent
+    );
+ 
+    opacity: 0.4;
+ 
+    transition: opacity 0.3s ease;
+}
+ 
+ 
+/* ==============================
+   Hover Effects
+   ============================== */
+ 
+@media (hover: hover) {
+ 
+    .modeCard:hover .modeImage {
+        transform: scale(1.06);
+        filter: brightness(1.1);
+    }
+ 
+    .modeCard:hover .modeTitle {
+        color: var(--mode-accent);
+    }
+ 
+    .modeCard:hover .modeDivider {
+        width: 140px;
+    }
+ 
+    .modeCard:hover .features span {
+        color: var(--color-text);
+        border-color: var(--mode-accent);
+    }
+ 
+    .modeCard:hover::after {
+        opacity: 1;
+    }
+}
+ 
+ 
+/* ==============================
+   Smaller Desktop Screens
+   ============================== */
+ 
+@media (max-width: 1200px) {
+ 
+    .modeCard {
+        min-height: 580px;
+        padding: 35px;
+    }
+ 
+    .modeNumber {
+        left: 30px;
+    }
+ 
+    .features {
+        gap: 8px;
+    }
+ 
+    .features span {
+        font-size: 9px;
+        padding: 8px 10px;
+    }
+}
+ 
+ 
+/* ==============================
+   Tablets
+   ============================== */
+ 
+@media (max-width: 900px) {
+ 
+    .gameModesSection {
+        padding-top: 60px;
+    }
+ 
+    .heading {
+        margin-bottom: 35px;
+    }
+ 
+    .modesGrid {
+        grid-template-columns: 1fr;
+    }
+ 
+    .modeCard {
+        min-height: 560px;
+        padding: 40px;
+    }
+ 
+    .pvpCard {
+        border-right: none;
+        border-bottom: 1px solid rgba(212, 180, 119, 0.25);
+    }
+ 
+    .modeTitle {
+        font-size: clamp(32px, 5vw, 48px);
+    }
+ 
+    .modeContent {
+        max-width: 100%;
+    }
+}
+ 
+ 
+/* ==============================
+   Mobile Devices
+   ============================== */
+ 
+@media (max-width: 600px) {
+ 
+    .gameModesSection {
+        padding-top: 45px;
+    }
+ 
+    .heading {
+        padding: 0 16px;
+        margin-bottom: 30px;
+    }
+ 
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+ 
+    .title {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+ 
+    .description {
+        font-size: 13px;
+    }
+ 
+    .modeCard {
+        min-height: 520px;
+        padding: 25px 20px;
+    }
+ 
+    .modeNumber {
+        top: 20px;
+        left: 20px;
+ 
+        font-size: 24px;
+    }
+ 
+    .modeLabel {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+ 
+    .modeTitle {
+        font-size: clamp(26px, 7vw, 36px);
+    }
+ 
+    .modeDivider {
+        margin: 16px 0;
+    }
+ 
+    .modeDescription {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+ 
+    .features {
+        gap: 8px;
+        margin-top: 20px;
+    }
+ 
+    .features span {
+        font-size: 9px;
+        padding: 7px 9px;
+    }
+ 
+    .overlay {
+        background: linear-gradient(
+            to top,
+            rgba(8, 15, 26, 1) 0%,
+            rgba(8, 15, 26, 0.95) 20%,
+            rgba(8, 15, 26, 0.65) 45%,
+            transparent 85%
+        );
+    }
+}
+ 
+ 
+/* ==============================
+   Accessibility
+   ============================== */
+ 
+@media (prefers-reduced-motion: reduce) {
+ 
+    .modeImage,
+    .modeTitle,
+    .modeDivider,
+    .overlay,
+    .features span,
+    .modeCard::after {
+        transition: none;
+    }
+ 
+    .modeCard:hover .modeImage {
+        transform: none;
+    }
+}
